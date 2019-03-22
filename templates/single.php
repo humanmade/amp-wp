@@ -1,24 +1,39 @@
-<!doctype html>
-<html amp>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-	<?php do_action( 'amp_post_template_head', $this ); ?>
+<?php
+/**
+ * Single view template.
+ *
+ * @package AMP
+ */
 
-	<style amp-custom>
-	<?php $this->load_parts( array( 'style' ) ); ?>
-	<?php do_action( 'amp_post_template_css', $this ); ?>
-	</style>
-</head>
-<body>
-<?php $this->load_parts( array( 'header-bar' ) ); ?>
-<div class="amp-wp-content">
-	<h1 class="amp-wp-title"><?php echo wp_kses_data( $this->get( 'post_title' ) ); ?></h1>
-	<ul class="amp-wp-meta">
-		<?php $this->load_parts( apply_filters( 'amp_post_template_meta_parts', array( 'meta-author', 'meta-time', 'meta-taxonomy' ) ) ); ?>
-	</ul>
-	<?php echo $this->get( 'post_amp_content' ); // amphtml content; no kses ?>
-</div>
-<?php do_action( 'amp_post_template_footer', $this ); ?>
-</body>
-</html>
+/**
+ * Context.
+ *
+ * @var AMP_Post_Template $this
+ */
+
+$this->load_parts( array( 'html-start' ) );
+?>
+
+<?php $this->load_parts( array( 'header' ) ); ?>
+
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title"><?php echo esc_html( $this->get( 'post_title' ) ); ?></h1>
+		<?php $this->load_parts( apply_filters( 'amp_post_article_header_meta', array( 'meta-author', 'meta-time' ) ) ); ?>
+	</header>
+
+	<?php $this->load_parts( array( 'featured-image' ) ); ?>
+
+	<div class="amp-wp-article-content">
+		<?php echo $this->get( 'post_amp_content' ); // WPCS: XSS ok. Handled in AMP_Content::transform(). ?>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+		<?php $this->load_parts( apply_filters( 'amp_post_article_footer_meta', array( 'meta-taxonomy', 'meta-comments-link' ) ) ); ?>
+	</footer>
+</article>
+
+<?php $this->load_parts( array( 'footer' ) ); ?>
+
+<?php
+$this->load_parts( array( 'html-end' ) );
