@@ -1,0 +1,24 @@
+# Add files or patterns to exclude from the built branch here.
+# Consult the "INCLUDE/EXCLUDE PATTERN RULES" section of the rsync manual for
+# supported patterns.
+#
+# Note: Excluding ".circleci" will cause your branch to fail. Use the
+# `branches` option in config.yml instead.
+
+.git
+.gitignore
+node_modules
+.babelrc
+.dev-lib
+dev-lib
+.eslintignore
+.eslintrc
+.editorconfig
+.gitmodules
+.travis.yml
+tests
+Gruntfile.js
+phpunit.xml
+webpack.config.js
+phpcs.xml
+package-lock.json
