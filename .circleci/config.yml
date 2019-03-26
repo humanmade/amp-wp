@@ -11,13 +11,13 @@ jobs:
     steps:
       # Checkout repo & subs:
       - checkout
+      - git submodule update --init --recursive
 
       # Get npm cache:
       - restore_cache:
           key: npm
 
       # Build steps:
-      - run: npm install grunt-cli
       - run: npm install
       - run: npm run build
 
