@@ -1,5 +1,5 @@
 {
-    "name": "humanmade/amp-wp",
+    "name": "humanmade/amp",
     "description": "WordPress plugin for adding AMP support.",
     "homepage": "https://github.com/ampproject/amp-wp",
     "type": "wordpress-plugin",
