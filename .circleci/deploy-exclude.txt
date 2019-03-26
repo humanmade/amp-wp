@@ -16,6 +16,7 @@ dev-lib
 .editorconfig
 .gitmodules
 .travis.yml
+.circleci
 tests
 Gruntfile.js
 phpunit.xml
