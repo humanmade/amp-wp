@@ -17,6 +17,7 @@ jobs:
           key: npm
 
       # Build steps:
+      - run: npm install -g grunt-cli
       - run: npm install
       - run: npm run build
 
