@@ -19,7 +19,7 @@ jobs:
 
       # Build steps:
       - run: npm install
-      - run: npm run build
+      - run: node_modules/.bin/grunt build
 
       # Make fast:
       - save_cache:
