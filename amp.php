@@ -76,7 +76,7 @@ function _amp_print_build_needed_notice() {
 	</div>
 	<?php
 }
-if ( ! file_exists( __DIR__ . '/vendor/autoload.php' ) || ! file_exists( __DIR__ . '/vendor/sabberworm/php-css-parser' ) || ! file_exists( __DIR__ . '/assets/js/amp-block-editor-toggle-compiled.js' ) ) {
+if ( ( ! class_exists( 'Sabberworm\\CSS\\Parser' ) && ! file_exists( __DIR__ . '/vendor/autoload.php' ) && ! file_exists( __DIR__ . '/vendor/sabberworm/php-css-parser' ) ) || ! file_exists( __DIR__ . '/assets/js/amp-block-editor-toggle-compiled.js' ) ) {
 	add_action( 'admin_notices', '_amp_print_build_needed_notice' );
 	return;
 }
